@@ -1,0 +1,44 @@
+{
+  "name": "native.css",
+  "version": "0.0.0",
+  "description": "Native CSS",
+  "homepage": "https://cjpatoilo.com/native.css",
+  "repository": "cjpatoilo/native.css",
+  "license": "MIT",
+  "author": "CJ Patoilo <cjpatoilo@gmail.com>",
+  "main": "dist/native.css",
+  "keywords": [
+    "native.css"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.9",
+    "prettier-standard": "^16.3.0"
+  },
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && cp src/native.css dist/native.css",
+    "lint": "prettier-standard --check",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": "^12.17.0",
+    "npm": "^6.14.5"
+  },
+  "prettier": {
+    "jsxSingleQuote": false,
+    "trailingComma": "all"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*": [
+      "prettier-standard --format",
+      "git add"
+    ]
+  }
+}
